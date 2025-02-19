@@ -56,7 +56,7 @@ function PokemonList() {
     <div className="container mt-4">
       <div className="text-center">
         <img
-          src="/images/pokedex_logo.png"
+          src={`${import.meta.env.BASE_URL}images/pokedex_logo.png`}
           alt="Pokédex"
           className="img-fluid"
           style={{ maxWidth: "300px" }}
@@ -67,7 +67,7 @@ function PokemonList() {
         {types.map((type) => (
           <button
             key={type.name}
-            className={`btn mx-2 ${selectedType === type.name ? type.color : "btn-outline-dark"}`}
+            className={`btn mx-2 mt-2 ${selectedType === type.name ? type.color : "btn-outline-dark"}`}
             onClick={() => {
               setSelectedType(type.name);
               setLimit(12); // Reiniciar la carga
@@ -86,16 +86,16 @@ function PokemonList() {
               <div className="card mb-3">
                 <div className="card-body text-center">
                   <img
-                    src={pokemon.sprites.front_default ? pokemon.sprites.front_default : "/images/default_pokemon.png" } 
+                    src={pokemon.sprites.front_default ? pokemon.sprites.front_default : `${import.meta.env.BASE_URL}images/default_pokemon.png` } 
                     alt={pokemon.name}
                     className="img-fluid"   
-                    onError={(e) => e.target.src = "/images/default_pokemon.png"}                 
+                    onError={(e) => e.target.src = `${import.meta.env.BASE_URL}images/default_pokemon.png`}                 
                   />
                   <h5 className="card-title text-capitalize mt-2">
                     {pokemon.name}
                   </h5>
                   <button
-                    className="btn btn-primary"
+                    className="btn btn-primary mt-3"
                     data-bs-toggle="modal"
                     data-bs-target="#pokemonModal"
                     onClick={() => setSelectedPokemon(pokemon)}

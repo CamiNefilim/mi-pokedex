@@ -24,10 +24,10 @@ function PokemonModal({ selectedPokemon }) {
               {selectedPokemon ? (
                 <>
                   <img
-                    src={selectedPokemon.sprites.front_default ? selectedPokemon.sprites.front_default : "/images/default_pokemon.png" }
+                    src={selectedPokemon.sprites.front_default ? selectedPokemon.sprites.front_default : `${import.meta.env.BASE_URL}images/default_pokemon.png` }
                     alt={selectedPokemon.name}
                     className="img-fluid"
-                    onError={(e) => e.target.src = "/images/default_pokemon.png"}
+                    onError={(e) => e.target.src = `${import.meta.env.BASE_URL}images/default_pokemon.png`}
                   />
                   <p>Peso: {selectedPokemon.weight}</p>
                   <p>Altura: {selectedPokemon.height}</p>
