@@ -1,8 +1,47 @@
-# React + Vite
+# 🌟 Pokedex App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✨ Descripción
+Esta es una aplicación web creada con **React y Vite** que permite explorar una lista de Pokémon filtrados por tipo, ver sus detalles en un modal y cargar más Pokémon de forma paginada.
 
-Currently, two official plugins are available:
+## 📂 Características
+- Listado de Pokémon filtrado por tipo (Fuego, Agua, Planta, Eléctrico).
+- Modal para ver detalles de cada Pokémon.
+- Paginación infinita al hacer scroll.
+- Uso de **Bootstrap** para mejorar la interfaz.
+- **Desplegado en GitHub Pages**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔧 Tecnologías utilizadas
+- React + Vite
+- Bootstrap & Bootstrap Icons
+- PokeAPI (https://pokeapi.co/)
+
+## 🛠️ Instalación y Ejecución
+### 1. Clonar el repositorio
+```sh
+git clone https://github.com/CamiNefilim/mi-pokedex.git
+cd mi-pokedex
+```
+
+### 2. Instalar dependencias
+```sh
+npm install
+```
+
+### 3. Ejecutar en modo desarrollo
+```sh
+npm run dev
+```
+Abrir en [http://localhost:5173](http://localhost:5173) en el navegador.
+
+### 4. Construir para producción
+```sh
+npm run build
+```
+
+## 🌐 Despliegue en GitHub Pages 
+
+La aplicación estará disponible en:  
+[https://caminefilim.github.io/mi-pokedex/](https://caminefilim.github.io/mi-pokedex/)
+
+---
+**✨ Hecho con pasión por Camila Alvarado Astroza. 💖**
