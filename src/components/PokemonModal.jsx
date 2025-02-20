@@ -1,4 +1,7 @@
-function PokemonModal({ selectedPokemon }) {
+import PropTypes from "prop-types";
+import PokemonCard from "./PokemonCard";
+
+function PokemonModal({ selectedPokemon, selectedType }) {
     return (
       <div
         className="modal fade"
@@ -11,7 +14,7 @@ function PokemonModal({ selectedPokemon }) {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title text-capitalize" id="pokemonModalLabel">
-                {selectedPokemon?.name || "Cargando..."}
+                {selectedPokemon ? "" : "Cargando..."}
               </h5>
               <button
                 type="button"
@@ -20,27 +23,30 @@ function PokemonModal({ selectedPokemon }) {
                 aria-label="Cerrar"
               ></button>
             </div>
-            <div className="modal-body text-center">
-              {selectedPokemon ? (
-                <>
-                  <img
-                    src={selectedPokemon.sprites.front_default ? selectedPokemon.sprites.front_default : `${import.meta.env.BASE_URL}images/default_pokemon.png` }
-                    alt={selectedPokemon.name}
-                    className="img-fluid"
-                    onError={(e) => e.target.src = `${import.meta.env.BASE_URL}images/default_pokemon.png`}
-                  />
-                  <p>Peso: {selectedPokemon.weight}</p>
-                  <p>Altura: {selectedPokemon.height}</p>
-                </>
-              ) : (
-                <p>Selecciona un Pokemon para ver más detalles</p>
-              )}
-            </div>
+            <div className="modal-body">
+            {selectedPokemon ? (
+              <PokemonCard pokemon={selectedPokemon} selectedType={selectedType} />
+            ) : (
+              <p>Selecciona un Pokémon para ver más detalles</p>
+            )}
+          </div>
           </div>
         </div>
       </div>
     );
   }
+
+  PokemonModal.propTypes = {
+    selectedPokemon: PropTypes.shape({
+      name: PropTypes.string,
+      weight: PropTypes.number,
+      height: PropTypes.number,
+      sprites: PropTypes.shape({
+        front_default: PropTypes.string,
+      }),
+    }),
+    selectedType: PropTypes.string
+  };
   
   export default PokemonModal;
   

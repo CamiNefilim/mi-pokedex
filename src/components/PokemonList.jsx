@@ -1,57 +1,12 @@
-import { useState, useEffect } from "react";
+import "../styles/PokemonList.css";
+import { usePokemonList } from "../hooks/usePokemonList";
 import PokemonModal from "./PokemonModal";
+import { types } from "../constants";
+import { PuffLoader } from "react-spinners";
 
 function PokemonList() {
-  const [pokemons, setPokemons] = useState([]);
-  const [selectedPokemon, setSelectedPokemon] = useState(null);
-  const [selectedType, setSelectedType] = useState("fire");
-  const [limit, setLimit] = useState(12);
-  const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-
-  const types = [
-    { name: "fire", text: "Fuego", color: "btn-danger", icon: "bi bi-fire" },
-    { name: "water", text: "Agua", color: "btn-primary", icon: "bi bi-droplet" },
-    { name: "grass", text: "Planta", color: "btn-success", icon: "bi bi-tree-fill" },
-    { name: "electric", text: "Eléctrico", color: "btn-warning", icon: "bi bi-lightning" },
-  ];
-
-  useEffect(() => {
-    if (!selectedType) return;
-
-    setLoading(true);
-    setHasMore(true);
-
-    fetch(`https://pokeapi.co/api/v2/type/${selectedType}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const totalAvailable = data.pokemon.length;
-        const pokemonUrls = data.pokemon.slice(0, limit).map((p) => p.pokemon.url);
-
-        Promise.all(pokemonUrls.map((url) => fetch(url).then((res) => res.json())))
-          .then((pokemonDetails) => {
-            setPokemons(pokemonDetails);
-            setLoading(false);
-            setHasMore(limit < totalAvailable); // Si el límite es menor que el total, hay más Pokémon
-          });
-      });
-  }, [selectedType, limit]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100 &&
-        !loading &&
-        hasMore
-      ) {
-        setLimit((prevLimit) => prevLimit + 12);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [loading, hasMore]);
-
+  const { pokemons, selectedType, setSelectedType, selectedPokemon, setSelectedPokemon, loading, hasMore } = usePokemonList();
+  
   return (
     <div className="container mt-4">
       <div className="text-center">
@@ -69,9 +24,7 @@ function PokemonList() {
             key={type.name}
             className={`btn mx-2 mt-2 ${selectedType === type.name ? type.color : "btn-outline-dark"}`}
             onClick={() => {
-              setSelectedType(type.name);
-              setLimit(12); // Reiniciar la carga
-              setPokemons([]); // Limpiar la lista
+              setSelectedType(type.name); // Limpiar la lista
             }}
           >
             <i className={`${type.icon} me-1`}></i>
@@ -79,43 +32,40 @@ function PokemonList() {
           </button>
         ))}
       </div>
-
+      
+      {/* Lista de Pokémon */}
       <div className="row mt-4">
-        {pokemons.map((pokemon, index) => (
-            <div key={index} className="col-12 col-md-3">
-              <div className="card mb-3">
-                <div className="card-body text-center">
-                  <img
-                    src={pokemon.sprites.front_default ? pokemon.sprites.front_default : `${import.meta.env.BASE_URL}images/default_pokemon.png` } 
-                    alt={pokemon.name}
-                    className="img-fluid"   
-                    onError={(e) => e.target.src = `${import.meta.env.BASE_URL}images/default_pokemon.png`}                 
-                  />
-                  <h5 className="card-title text-capitalize mt-2">
-                    {pokemon.name}
-                  </h5>
-                  <button
-                    className="btn btn-primary mt-3"
-                    data-bs-toggle="modal"
-                    data-bs-target="#pokemonModal"
-                    onClick={() => setSelectedPokemon(pokemon)}
-                  >
-                    Ver detalles
-                  </button>
+        {pokemons.map((pokemon) => (
+          <div key={pokemon.id} className="col-lg-4 col-md-6 col-sm-6">
+            <article className='poke-card'>
+              <header className='poke-card-header'>
+                <img
+                  className='poke-card-avatar'
+                  src={pokemon.sprites.front_default ? pokemon.sprites.front_default : `${import.meta.env.BASE_URL}images/default_pokemon.png` } 
+                  alt={pokemon.name}
+                  onError={(e) => e.target.src = `${import.meta.env.BASE_URL}images/default_pokemon.png`}
+                />
+                <div className='poke-card-info'>
+                  <strong className="text-capitalize">{pokemon.name}</strong>
+                  <span className='poke-card-infoName'>N.°{String(pokemon.id).padStart(4, "0")}</span>
                 </div>
-              </div>
-            </div>
-          ))
-        }
+              </header>
+
+              <aside>
+                <button className="poke-card-button" data-bs-toggle="modal" data-bs-target="#pokemonModal" onClick={() => setSelectedPokemon(pokemon)}>
+                  <span className='poke-card-text'>Ver más</span>
+                </button>
+              </aside>
+            </article>            
+          </div>
+        ))}
       </div>
+      {loading && <div className="loader-container"><PuffLoader color="#383297" size={80} /></div>}
+      {!hasMore && <p className="text-center text-secondary m-4">No hay más Pokémon para mostrar</p>}
 
-      {loading && <p className="text-center mt-3">Cargando más Pokémon...</p>}
-      {!hasMore && <p className="text-center mt-3 text-muted">No hay más Pokémon disponibles</p>}
-
-      <PokemonModal selectedPokemon={selectedPokemon} />
+      <PokemonModal selectedPokemon={selectedPokemon} selectedType={selectedType} />
     </div>
   );
-
 }
 
 export default PokemonList;

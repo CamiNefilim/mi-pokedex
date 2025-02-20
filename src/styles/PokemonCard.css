@@ -1,0 +1,44 @@
+.details
+{
+    background-color: #FFF;
+    color: #333;
+    box-shadow: 0 0 10px 0 rgba( 0,0,0,.4 );
+    border-radius: 3rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    animation: 0.3s pull-up both ease-out .2s;
+}
+
+.details .pokemon-image
+{
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -2rem;
+    left: 50%;
+    transform: translateX( -50% );
+    max-width: 30%;
+    height: auto;
+    max-height: 20vh;
+    filter: drop-shadow( 0 0 10px rgba( 0,0,0,.2 ) );
+    animation: 0.3s fade-in ease-out .5s both;
+}
+
+.bg-normal { background-color: #A8A77A!important; color: white; }
+.bg-fire { background-color: #ee3030!important; color: white; }
+.bg-water { background-color: #6390F0!important; color: white; }
+.bg-electric { background-color: #F7D02C!important; color: black; }
+.bg-grass { background-color: #7AC74C!important; color: white; }
+.bg-ice { background-color: #96D9D6!important; color: black; }
+.bg-fighting { background-color: #C22E28!important; color: white; }
+.bg-poison { background-color: #A33EA1!important; color: white; }
+.bg-ground { background-color: #E2BF65!important; color: black; }
+.bg-flying { background-color: #A98FF3!important; color: black; }
+.bg-psychic { background-color: #F95587!important; color: white; }
+.bg-bug { background-color: #A6B91A!important; color: white; }
+.bg-rock { background-color: #B6A136!important; color: white; }
+.bg-ghost { background-color: #735797!important; color: white; }
+.bg-dragon { background-color: #6F35FC!important; color: white; }
+.bg-dark { background-color: #705746!important; color: white; }
+.bg-steel { background-color: #B7B7CE!important; color: black; }
+.bg-fairy { background-color: #D685AD!important; color: black; }
