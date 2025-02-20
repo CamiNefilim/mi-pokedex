@@ -43,5 +43,9 @@ npm run build
 La aplicación estará disponible en:  
 [https://caminefilim.github.io/mi-pokedex/](https://caminefilim.github.io/mi-pokedex/)
 
+## Proceso de creación:
+
+[Presentación](https://www.canva.com/design/DAGfp8fFwEQ/UTlmjlsjqlgXTb8Q0WD70A/edit?utm_content=DAGfp8fFwEQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ---
 **✨ Hecho con 💜 por Camila Alvarado Astroza.**
