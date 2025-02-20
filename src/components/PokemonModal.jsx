@@ -12,7 +12,7 @@ function PokemonModal({ selectedPokemon, selectedType }) {
       >
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
-            <div className="modal-header">
+            <div className="modal-header border-0">
               <h5 className="modal-title text-capitalize" id="pokemonModalLabel">
                 {selectedPokemon ? "" : "Cargando..."}
               </h5>
