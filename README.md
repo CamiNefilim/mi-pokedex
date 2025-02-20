@@ -44,4 +44,4 @@ La aplicación estará disponible en:
 [https://caminefilim.github.io/mi-pokedex/](https://caminefilim.github.io/mi-pokedex/)
 
 ---
-**✨ Hecho con pasión por Camila Alvarado Astroza. 💖**
+**✨ Hecho con 💜 por Camila Alvarado Astroza.**
