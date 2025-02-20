@@ -6,7 +6,7 @@ function PokemonCard({ pokemon, selectedType }) {
   if (!pokemon) return null;
 
   return (
-    <div className="card details p-3 m-1 shadow rounded-3">
+    <div className="card details p-3 m-1 rounded-3">
       
       <div className="d-flex justify-content-between">
         <span className="text-muted">N.º {pokemon.id.toString().padStart(4, "0")}</span>

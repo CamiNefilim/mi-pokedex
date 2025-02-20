@@ -2,8 +2,7 @@
 {
     background-color: #FFF;
     color: #333;
-    box-shadow: 0 0 10px 0 rgba( 0,0,0,.4 );
-    border-radius: 3rem;
+    border: 0 !important;
     padding: 2rem;
     position: relative;
     z-index: 2;
