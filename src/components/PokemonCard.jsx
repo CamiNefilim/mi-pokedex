@@ -11,8 +11,7 @@ function PokemonCard({ pokemon, selectedType }) {
       <div className="d-flex justify-content-between">
         <span className="text-muted">N.º {pokemon.id.toString().padStart(4, "0")}</span>
         <div>
-          <span className="badge bg-primary me-1">♂</span>
-          <span className="badge bg-danger">♀</span>
+          <span className="badge text-secondary me-1">❤️ {pokemon.stats[0].base_stat} HP</span>
         </div>
       </div>
       
@@ -29,7 +28,6 @@ function PokemonCard({ pokemon, selectedType }) {
       <div className="d-flex flex-wrap align-items-center justify-content-center mb-2">
         <span className="badge bg-success mt-2 me-2">📏 {pokemon.height / 10} m</span>
         <span className="badge bg-info mt-2 me-2">⚖️ {pokemon.weight / 10} kg</span>
-        <span className="badge bg-warning mt-2 me-2"> ❤️ {pokemon.stats[0].base_stat} HP</span>
         {pokemon.types.map((type) => (
           <span key={`tag-${type.type.name}`} className={`badge bg-${type.type.name} mt-2 me-2`}>
             {type.type.name.toUpperCase()}

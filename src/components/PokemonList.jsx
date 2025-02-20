@@ -9,15 +9,7 @@ function PokemonList() {
   
   return (
     <div className="container mt-4">
-      <div className="text-center">
-        <img
-          src={`${import.meta.env.BASE_URL}images/pokedex_logo.png`}
-          alt="Pokédex"
-          className="img-fluid"
-          style={{ maxWidth: "300px" }}
-        />
-      </div>
-
+      
       <div className="text-center my-3">
         {types.map((type) => (
           <button
