@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 body {
-
   --bg-color: rgba( 255,255,255,.75 );
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", serif!important;
   background-image: linear-gradient( 0deg, var( --bg-color ), var( --bg-color ) ), url( '/images/bg.jpg' );
 
 }

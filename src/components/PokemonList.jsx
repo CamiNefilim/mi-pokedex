@@ -46,8 +46,8 @@ function PokemonList() {
                   onError={(e) => e.target.src = `${import.meta.env.BASE_URL}images/default_pokemon.png`}
                 />
                 <div className='poke-card-info'>
-                  <strong className="text-capitalize">{pokemon.name}</strong>
-                  <span className='poke-card-infoName'>N.°{String(pokemon.id).padStart(4, "0")}</span>
+                  <strong className="poke-card-infoName text-capitalize">{pokemon.name}</strong>
+                  <span className='poke-card-id'>N.°{String(pokemon.id).padStart(4, "0")}</span>
                 </div>
               </header>
 

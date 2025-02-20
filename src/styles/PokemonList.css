@@ -21,7 +21,14 @@
     flex-direction: column;
 }
 
-.poke-card-infoName {
+@media (min-width: 1400px) {
+    .poke-card-infoName {
+        font-size: 14px; /* Reducir el tamaño en pantallas pequeñas */
+    }
+}
+  
+
+.poke-card-id {
     opacity: .6;
 }
 
