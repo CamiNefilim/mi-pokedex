@@ -24,6 +24,10 @@
     animation: 0.3s fade-in ease-out .5s both;
 }
 
+.progress{
+  height: 15px;
+}
+
 .bg-normal { background-color: #A8A77A!important; color: white; }
 .bg-fire { background-color: #ee3030!important; color: white; }
 .bg-water { background-color: #6390F0!important; color: white; }

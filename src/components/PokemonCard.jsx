@@ -40,7 +40,7 @@ function PokemonCard({ pokemon, selectedType }) {
       {pokemon.stats.map((stat) => (
         <div key={stat.stat.name} className="mb-2 ms-3 me-3">
           <span className="text-capitalize">{stat.stat.name.replace("-", " ")}</span>
-          <div className="progress mt-2" style={{ height: "15px" }}>
+          <div className="progress mt-2">
             <div
               className={`progress-bar bg-${selectedType}`} 
               role="progressbar"
